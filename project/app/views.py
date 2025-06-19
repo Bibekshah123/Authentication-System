@@ -8,14 +8,19 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from .forms import RegisterForm
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 
 class LoginView(LoginView):
     template_name = 'login.html'
-    redirect_authenticated_user = True
+    # redirect_authenticated_user = True
 
     def get_success_url(self):
         return reverse_lazy('home')  # ✅ Explicit redirect
+    
+    
+class LogoutView(LogoutView):
+    pass
+
 
 class RegisterView(FormView):
     template_name = 'register.html'
@@ -39,3 +44,4 @@ class RegisterView(FormView):
 
 class Home(TemplateView):
     template_name = 'home.html'
+    login_url = '/accounts/login/'  # Redirect if not logged in

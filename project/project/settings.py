@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
 ]
 
-LOGIN_URL = '/app/login/'
+# LOGIN_URL = '/app/login/'
+# LOGIN_REDIRECT_URL = '/'
 
 
 RECAPTCHA_SITE_KEY = '6LfKNmYrAAAAAFx7DCoJaxdQ24l0ah4jXNQWIbQ4'

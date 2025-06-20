@@ -19,7 +19,7 @@ class LoginView(LoginView):
     # redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy('home')  # ✅ Explicit redirect
+        return reverse_lazy('home') 
     
     
 class LogoutView(View):
@@ -50,11 +50,11 @@ class RegisterView(FormView):
 
 class Home(LoginRequiredMixin, TemplateView):
     template_name = 'home.html'
-    login_url = 'login/'  # Redirect if not logged in
+    login_url = 'login/'  
     
     
 def captcha_image(request):
     text = generate_captcha_text()
-    request.session['captcha_text'] = text  # Save for validation
+    request.session['captcha_text'] = text  
     image_data = generate_captcha_image(text)
     return HttpResponse(image_data, content_type='image/png')
